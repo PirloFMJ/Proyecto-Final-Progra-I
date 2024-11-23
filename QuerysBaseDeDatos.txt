@@ -1,0 +1,22 @@
+CREATE DATABASE controlescolar;
+
+CREATE TABLE estudiantes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_estudiante VARCHAR(150) NOT NULL,
+    grado INT NOT NULL
+);
+
+CREATE TABLE cursos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_cursos VARCHAR(150) NOT NULL,
+    creditos INT NOT NULL
+);
+
+CREATE TABLE calificaciones (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_estudiante INT NOT NULL,
+    id_curso INT NOT NULL,
+    calificacion INT NOT NULL,
+    FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id),
+    FOREIGN KEY (id_curso) REFERENCES cursos(id)
+);
